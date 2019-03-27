@@ -9,6 +9,9 @@
 import './style.scss';
 import './editor.scss';
 
+//Import Custom components
+import Fetchposts from '../Fetchposts/Fetchposts';
+
 const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 
@@ -32,11 +35,11 @@ registerBlockType( 'cgb/block-fetchpost', {
 	keywords: [
 		__( 'Fetchpost Block' ),
 	],
-	edit: function( props ) {
-		return (
-			<div>Siddhesh</div>
-		);
-	},
+	edit: ( props ) => {
+	return(
+		<Fetchposts 
+			apiurl="http://gutenblock.local.com/?rest_route=/wp/v2/posts"/>
+		)},
 	save: function( props ) {
 		return (
 			<div>Siddhesh</div>
