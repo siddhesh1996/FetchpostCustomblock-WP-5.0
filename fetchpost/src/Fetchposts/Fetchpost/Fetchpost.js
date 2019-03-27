@@ -27,28 +27,21 @@ class Fetchpost extends Component {
                 </option>
             );
         });
-        // const getSelected = () => {
-        //     let selector = document.querySelector('select');
-        //     let value = selector[selector.selectedIndex].value;
-        //     return showSelected(value)
-        // }
-        // const showSelected = (value) => {
-        //     this.setState({ value: value });
-        //     if(this.state.value == value) {
-        //         return(
-        //             <div>
-        //                 <p>
-        //                     {value}
-        //                 </p>
-        //             </div>
-        //         )
-        //     }
-        // }
+        const getSelected = () => {
+            let selector = document.querySelector('select');
+            let value = selector[selector.selectedIndex].value;
+            return showSelected(value)
+        }
+        const showSelected = (value) => {
+            this.setState({ value: value });
+            console.log(value,this.state.value);
+        }
         return (
             <div>
-                <select>
+                <select onChange={getSelected}>
                     {selectposts}
                 </select>
+                {showSelected}
             </div>
         )
     }
